@@ -1,6 +1,6 @@
 %define module   MKDoc-XML
 %define version    0.75
-%define release    %mkrel 1
+%define release    %mkrel 2
 
 Name:       perl-%{module}
 Version:    %{version}
