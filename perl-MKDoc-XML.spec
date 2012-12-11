@@ -1,19 +1,18 @@
 %define module   MKDoc-XML
-%define version    0.75
-%define release    %mkrel 3
 
-Name:       perl-%{module}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
-Group:      Development/Perl
-Summary:    The MKDoc XML Toolkit
-Url:        http://search.cpan.org/dist/%{module}
-Source:     http://www.cpan.org/modules/by-module/MKDoc/%{module}-%{version}.tar.gz
-BuildRequires: perl(Scalar::Util)
-BuildRequires: perl(Test::More)
-BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}
+Name:		perl-%{module}
+Version:	0.75
+Release:	4
+License:	GPL or Artistic
+Group:		Development/Perl
+Summary:	The MKDoc XML Toolkit
+Url:		http://search.cpan.org/dist/%{module}
+Source:		http://www.cpan.org/modules/by-module/MKDoc/%{module}-%{version}.tar.gz
+
+BuildRequires:	perl-devel
+BuildRequires:	perl(Scalar::Util)
+BuildRequires:	perl(Test::More)
+BuildArch:	noarch
 
 %description
 MKDoc is a web content management system written in Perl which focuses on
@@ -24,22 +23,33 @@ websites.
 %setup -q -n %{module}-%{version} 
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc Changes README
 %{_mandir}/man3/*
-%perl_vendorlib/MKDoc
+%{perl_vendorlib}/MKDoc
 
+%changelog
+* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 0.75-3mdv2010.0
++ Revision: 430504
+- rebuild
+
+* Fri Aug 08 2008 Thierry Vignaud <tv@mandriva.org> 0.75-2mdv2009.0
++ Revision: 268575
+- rebuild early 2009.0 package (before pixel changes)
+
+* Sat May 31 2008 Guillaume Rousse <guillomovitch@mandriva.org> 0.75-1mdv2009.0
++ Revision: 213620
+- import perl-MKDoc-XML
+
+
+* Sat May 31 2008 Guillaume Rousse <guillomovitch@mandriva.org> 0.75-1mdv2009.0
+- first mdv release
