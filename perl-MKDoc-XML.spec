@@ -2,7 +2,7 @@
 
 Name:		perl-%{module}
 Version:	0.75
-Release:	4
+Release:	5
 License:	GPL or Artistic
 Group:		Development/Perl
 Summary:	The MKDoc XML Toolkit
