@@ -9,6 +9,7 @@ Summary:	The MKDoc XML Toolkit
 Url:		https://search.cpan.org/dist/%{module}
 Source:		http://www.cpan.org/modules/by-module/MKDoc/%{module}-%{version}.tar.gz
 
+BuildRequires:	make
 BuildRequires:	perl-devel
 BuildRequires:	perl(Scalar::Util)
 BuildRequires:	perl(Test::More)
